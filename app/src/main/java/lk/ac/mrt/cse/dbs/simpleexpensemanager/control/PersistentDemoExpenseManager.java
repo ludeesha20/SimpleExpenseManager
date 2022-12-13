@@ -21,7 +21,7 @@ public class PersistentDemoExpenseManager extends ExpenseManager{
         SQLiteDatabase DataBase = context.openOrCreateDatabase("200410K", Context.MODE_PRIVATE, null);
         //creating new 2 databases if not exist for bank account details and transaction details
         String sqlQ1 = "CREATE TABLE IF NOT EXISTS Account(AccountNumber VARCHAR PRIMARY KEY, BankName VARCHAR, AccountHolderName VARCHAR, Balance REAL);";
-        String sqlQ2 = "CREATE TABLE IF NOT EXISTS BankTransaction(TransactionID INTEGER PRIMARY KEY Autoincrement, AccountNo VARCHAR, ExpenseType_1_Expense INT, Amount REAL, Date DATE, FOREIGN KEY (AccountNO) REFERENCES Account(AccountNumber));";
+        String sqlQ2 = "CREATE TABLE IF NOT EXISTS BankTransaction(TransactionID INTEGER PRIMARY KEY Autoincrement, AccountNo VARCHAR, ExpenseType INT, Amount REAL, Date DATE, FOREIGN KEY (AccountNO) REFERENCES Account(AccountNumber));";
 
         DataBase.execSQL(sqlQ1);
         DataBase.execSQL(sqlQ2);
